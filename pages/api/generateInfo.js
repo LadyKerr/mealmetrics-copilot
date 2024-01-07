@@ -21,6 +21,13 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 const generateInfo = async (req, res) => {
+    if (!process.env.OPENAI_API_KEY) {
+        return res.status(500).json({
+            success: false,
+            errorMessage: "Missing OpenAI API key",
+        });
+    }
+    
     const { recipe } = req.body;
 
     try {
