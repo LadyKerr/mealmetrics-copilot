@@ -8,6 +8,12 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration);
 
+/**
+ * Generates information using the OpenAI API based on the provided recipe.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Promise<void>} - A promise that resolves when the information is generated and sent in the response.
+ */
 const generateInfo = async (req, res) => {
     if (!process.env.OPENAI_API_KEY) {
         return res.status(500).json({

@@ -29,6 +29,8 @@ import {
 } from "@material-ui/core";
 import { Send } from "@material-ui/icons";
 import Header from "../components/Header";
+import Nutritionfacts from "../components/Nutritionfacts";
+import Footer from "../components/Footer";
 
 function HomePage() {
   const [recipe, setRecipe] = useState("");
@@ -125,11 +127,12 @@ function HomePage() {
             </Typography>
           ) : nutrition ? (
             <>
-              <Typography>{nutrition}</Typography>
+              <Nutritionfacts data={nutrition} />
             </>
           ) : null}
         </div>
       </Container>
+      <Footer />
     </>
   );
 }
